@@ -33,12 +33,43 @@ app.get('/students', async (req, res) => {
     
 })
 
+// Get One Student Endpoint
+app.get('/students/:id', async (req, res) => {
+    try {
+
+        const { id } = req.params
+
+        const student = await axios.get(`https://json-server-template-wpd7.onrender.com/students/${id}`)
+        res.status(200).json(student.data)
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({message: error.message})
+    }
+    
+})
+
 // Add Students Endpoint
 app.post('/students', async (req, res) => {
     try {
 
         const student = await axios.post('https://json-server-template-wpd7.onrender.com/students', req.body)
-        console.log(student.data)
+        res.status(200).json(student.data)
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({message: error.message})
+    }
+    
+})
+
+// Update Student Endpoint
+app.post('/students/:id', async (req, res) => {
+    try {
+
+        const { id } = req.params
+
+        const student = await axios.put(`https://json-server-template-wpd7.onrender.com/students/${id}`, req.body)
         res.status(200).json(student.data)
 
     } catch (error) {
