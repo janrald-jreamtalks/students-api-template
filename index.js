@@ -85,7 +85,7 @@ app.delete('/students/:id', async (req, res) => {
 
         const { id } = req.params
 
-        const student = await axios.elete(`https://json-server-template-wpd7.onrender.com/students/${id}`)
+        const student = await axios.delete(`https://json-server-template-wpd7.onrender.com/students/${id}`)
         res.status(200).json(student.data)
 
     } catch (error) {
