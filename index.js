@@ -1,21 +1,19 @@
 // ---------------------------- Part 1 ----------------------------
-// Import the Express Library
-let express = require('express')
-
-// Import Axios
-let axios = require('axios') 
+// Import the Libraries
+const express = require('express')
+const axios = require('axios') 
+const cors = require('cors')
 
 // Initialize the Express App
-let app = express()
+const app = express()
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(cors())
 
-// Start the Web Server on Port 5000
+// Start the Web Server on Port 8000
 app.listen(8000, () => {
     console.log("App is listening on port 8000")
 })
-
-// ---------------------------- End of Part 1 ----------------------------
 
 // ---------------------------- Part 2 ----------------------------
 
