@@ -64,12 +64,28 @@ app.post('/students', async (req, res) => {
 })
 
 // Update Student Endpoint
-app.post('/students/:id', async (req, res) => {
+app.put('/students/:id', async (req, res) => {
     try {
 
         const { id } = req.params
 
         const student = await axios.put(`https://json-server-template-wpd7.onrender.com/students/${id}`, req.body)
+        res.status(200).json(student.data)
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({message: error.message})
+    }
+    
+})
+
+// Delete Student Endpoint
+app.delete('/students/:id', async (req, res) => {
+    try {
+
+        const { id } = req.params
+
+        const student = await axios.elete(`https://json-server-template-wpd7.onrender.com/students/${id}`)
         res.status(200).json(student.data)
 
     } catch (error) {
