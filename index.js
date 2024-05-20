@@ -23,8 +23,7 @@ app.listen(8000, () => {
 app.get('/students', async (req, res) => {
     try {
 
-        const students = await axios.get('http://localhost:3000/students')
-        console.log(students.data)
+        const students = await axios.get('https://json-server-template-wpd7.onrender.com/students')
         res.status(200).json(students.data)
 
     } catch (error) {
@@ -38,7 +37,7 @@ app.get('/students', async (req, res) => {
 app.post('/students', async (req, res) => {
     try {
 
-        const student = await axios.post('http://localhost:3000/students', req.body)
+        const student = await axios.post('https://json-server-template-wpd7.onrender.com/students', req.body)
         console.log(student.data)
         res.status(200).json(student.data)
 
